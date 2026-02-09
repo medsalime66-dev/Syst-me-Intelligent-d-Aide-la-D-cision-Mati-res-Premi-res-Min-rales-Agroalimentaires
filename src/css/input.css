@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-100 text-slate-800 font-sans antialiased;
+    background-color: #f1f5f9;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.1) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.1) 0px, transparent 50%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2364748b' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-gradient-to-r from-slate-800 to-slate-900 text-white rounded-xl hover:shadow-lg hover:shadow-slate-500/20 hover:scale-[1.02] transition-all duration-300 font-medium active:scale-95 border border-slate-700/50 backdrop-blur-sm relative overflow-hidden;
+  }
+
+  .btn-primary::after {
+    content: '';
+    @apply absolute inset-0 bg-white/10 translate-y-full hover:translate-y-0 transition-transform duration-300;
+  }
+
+  .glass-panel {
+    @apply bg-white/60 backdrop-blur-xl border border-white/60 shadow-xl shadow-slate-200/50 rounded-2xl relative overflow-hidden transition-all duration-500;
+  }
+
+  .glass-panel::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/80 to-transparent opacity-50;
+  }
+
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-lg border border-white/50 shadow-lg shadow-slate-200/40 rounded-xl hover:bg-white/60 hover:border-white/80 hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300 transform hover:-translate-y-1;
+  }
+
+  .tech-label {
+    @apply text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1 flex items-center gap-1;
+  }
+
+  .tech-label::before {
+    content: '';
+    @apply w-1.5 h-1.5 rounded-full bg-slate-300;
+  }
+
+  .tech-value {
+    @apply font-mono text-slate-800 tracking-tight;
+  }
+
+  /* Scientific decoration */
+  .sci-grid {
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+  }
+}
